@@ -19,13 +19,13 @@ pipeline:
             steps:
               - step:
                   type: Run
-                  identifier: build_go_app
-                  name: Build Go App
+                  identifier: build_java_app
+                  name: Build Java App
                   spec:
+                    shell: Sh
                     command: |-
                       echo "Welcome to Harness CI"
-                      go build
-                      go test             
+                      mvn -B package --file pom.xml                     
           platform:
             arch: Amd64
             os: Linux
